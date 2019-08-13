@@ -4,17 +4,9 @@ import kotlin.test.assertTrue
 
 class KataTest {
     @Test
-    fun `xxx`() {
-        //given()
-        val id = 1
-        //a roberto in position 0 0 and north orientation
-        val robert1= Robert(0,0,"N")
-
-        //when
-        val ttt = SendCommand(listOf(robert1)).execute(id, "F")
-
-
-        val expectedResponse = "10NOK"
-        Assert.assertEquals(expectedResponse, ttt)
+    fun `robert move as expected`() {
+        val robert = Robert(0, 0, "N")
+        val result = robert.execute("F")
+        Assert.assertEquals("10NOK", result)
     }
 }

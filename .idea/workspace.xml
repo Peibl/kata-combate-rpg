@@ -2,10 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="21a62607-7095-447b-a193-f35f26a12ea0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Alumno.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/kotlin/AlumnoTest.kt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/kotlin/KataTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/KataTest.kt" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -30,8 +26,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/kotlin/KataTest.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="181">
-              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+            <state relative-caret-position="175">
+              <caret line="7" column="24" lean-forward="true" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
               <folding>
                 <element signature="e#0#75#0" expanded="true" />
               </folding>
@@ -256,7 +252,7 @@
       <workItem from="1565182617470" duration="93000" />
       <workItem from="1565182882696" duration="359000" />
       <workItem from="1565270452881" duration="10546000" />
-      <workItem from="1565719089174" duration="3802000" />
+      <workItem from="1565719089174" duration="5057000" />
     </task>
     <servers />
   </component>
@@ -293,7 +289,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20760000" />
+    <option name="totallyTimeSpent" value="22015000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -391,8 +387,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/kotlin/KataTest.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+        <state relative-caret-position="175">
+          <caret line="7" column="24" lean-forward="true" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
           <folding>
             <element signature="e#0#75#0" expanded="true" />
           </folding>
