@@ -4,11 +4,10 @@
     <list default="true" id="21a62607-7095-447b-a193-f35f26a12ea0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/domain/Plateau.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/domain/Plateau.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/domain/Position.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/domain/Position.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/test/a2x2PlateauShould.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/test/a2x2PlateauShould.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/domain/Plateau.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/domain/Plateau.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/domain/Position.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/domain/Position.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/kotlin/PlateauTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/PlateauTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/domain/Robert.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/ARobertShould.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/domain/Robert.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/domain/Rover.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/KataTest.kt" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -30,10 +29,10 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/kotlin/domain/Plateau.kt">
+        <entry file="file://$PROJECT_DIR$/src/main/kotlin/action/SendCommandToRover.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="506">
-              <caret line="46" column="8" selection-start-line="46" selection-start-column="8" selection-end-line="46" selection-end-column="8" />
+            <state relative-caret-position="297">
+              <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
             </state>
           </provider>
         </entry>
@@ -47,10 +46,18 @@
         <option value="Arquillian JUnit Test Class" />
         <option value="JUnit5 Test Class" />
         <option value="Class" />
-        <option value="Kotlin File" />
         <option value="Kotlin Enum" />
+        <option value="Kotlin File" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>robert</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>rover</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -65,13 +72,22 @@
         <option value="$PROJECT_DIR$/src/main/kotlin/Alumno.kt" />
         <option value="$PROJECT_DIR$/src/test/kotlin/AlumnoTest.kt" />
         <option value="$PROJECT_DIR$/src/test/kotlin/SumTest.kt" />
-        <option value="$PROJECT_DIR$/src/test/kotlin/KataTest.kt" />
         <option value="$PROJECT_DIR$/src/test/kotlin/PlateauTest.java" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/domain/Robert.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/domain/Orientation.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/domain/Position.kt" />
-        <option value="$PROJECT_DIR$/src/test/kotlin/PlateauTest.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/domain/Plateau.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/domain/Robert.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/domain/rover.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/MoveRover.kt" />
+        <option value="$PROJECT_DIR$/src/test/kotlin/KataTest.kt" />
+        <option value="$PROJECT_DIR$/src/test/kotlin/PlateauTest.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/domain/Rover.kt" />
+        <option value="$PROJECT_DIR$/src/test/kotlin/action/MoveRoverTest.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/action/MoveRover.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/action/SendCommandToRover.kt" />
+        <option value="$PROJECT_DIR$/src/test/kotlin/action/SendCommandToRoverTest.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/domain/Rovers.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/RoversInMemory.kt" />
       </list>
     </option>
   </component>
@@ -89,8 +105,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -122,6 +136,14 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="kotlin" type="462c0819:PsiDirectoryNode" />
+              <item name="action" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="KotlinWorkshop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="KotlinWorkshop" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="kotlin" type="462c0819:PsiDirectoryNode" />
               <item name="domain" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -137,10 +159,20 @@
               <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="kotlin" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="KotlinWorkshop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="KotlinWorkshop" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="kotlin" type="462c0819:PsiDirectoryNode" />
+              <item name="action" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -159,16 +191,21 @@
     <property name="last_opened_file_path" value="$USER_HOME$/Documents/code/culti" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
       <recent name="" />
     </key>
+    <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="action" />
+    </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
     <key name="CreateKotlinClassDialog.RecentsKey">
+      <recent name="" />
       <recent name="domain" />
     </key>
   </component>
@@ -184,70 +221,89 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.a2x2PlateauShould.return false if there  is not an obstacle at the given position">
-    <configuration name="a2x2PlateauShould" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.SendCommandToRoverTest.move it forward one position when an F command is sent">
+    <configuration name="AroverShould.move as specified when no obstacles" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="KotlinWorkshop_test" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="a2x2PlateauShould" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="a2x2PlateauShould.return (0,0) as the western position of " type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="KotlinWorkshop_test" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="a2x2PlateauShould" />
-      <option name="METHOD_NAME" value="return (0,0) as the western position of (1,0)" />
+      <option name="MAIN_CLASS_NAME" value="AroverShould" />
+      <option name="METHOD_NAME" value="move as specified when no obstacles" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="a2x2PlateauShould.return (0,1) as the northern position of " type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AroverShould.stop moving when obstacle found" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="KotlinWorkshop_test" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="a2x2PlateauShould" />
-      <option name="METHOD_NAME" value="return (0,1) as the northern position of (0,0)" />
+      <option name="MAIN_CLASS_NAME" value="AroverShould" />
+      <option name="METHOD_NAME" value="stop moving when obstacle found" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="a2x2PlateauShould.return false if there  is not an obstacle at the given position" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="SendCommandToRoverTest.move as specified when no obstacles" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="KotlinWorkshop_test" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="a2x2PlateauShould" />
-      <option name="METHOD_NAME" value="return false if there  is not an obstacle at the given position" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="action.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="action" />
+      <option name="MAIN_CLASS_NAME" value="action.SendCommandToRoverTest" />
+      <option name="METHOD_NAME" value="move as specified when no obstacles" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="a2x2PlateauShould.return true if there is an obstacle at the given position" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="SendCommandToRoverTest.move it forward one position when an F command is sent" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="KotlinWorkshop_test" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="a2x2PlateauShould" />
-      <option name="METHOD_NAME" value="return true if there is an obstacle at the given position" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="action.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="action" />
+      <option name="MAIN_CLASS_NAME" value="action.SendCommandToRoverTest" />
+      <option name="METHOD_NAME" value="move it forward one position when an F command is sent" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SendCommandToRoverTest.stop moving when obstacle found" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="KotlinWorkshop_test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="action.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="action" />
+      <option name="MAIN_CLASS_NAME" value="action.SendCommandToRoverTest" />
+      <option name="METHOD_NAME" value="stop moving when obstacle found" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.a2x2PlateauShould" />
-      <item itemvalue="JUnit.a2x2PlateauShould.return (0,0) as the western position of " />
-      <item itemvalue="JUnit.a2x2PlateauShould.return (0,1) as the northern position of " />
-      <item itemvalue="JUnit.a2x2PlateauShould.return true if there is an obstacle at the given position" />
-      <item itemvalue="JUnit.a2x2PlateauShould.return false if there  is not an obstacle at the given position" />
+      <item itemvalue="JUnit.AroverShould.move as specified when no obstacles" />
+      <item itemvalue="JUnit.AroverShould.stop moving when obstacle found" />
+      <item itemvalue="JUnit.SendCommandToRoverTest.move as specified when no obstacles" />
+      <item itemvalue="JUnit.SendCommandToRoverTest.stop moving when obstacle found" />
+      <item itemvalue="JUnit.SendCommandToRoverTest.move it forward one position when an F command is sent" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.a2x2PlateauShould.return false if there  is not an obstacle at the given position" />
-        <item itemvalue="JUnit.a2x2PlateauShould.return true if there is an obstacle at the given position" />
-        <item itemvalue="JUnit.a2x2PlateauShould" />
-        <item itemvalue="JUnit.a2x2PlateauShould.return (0,1) as the northern position of " />
-        <item itemvalue="JUnit.a2x2PlateauShould.return (0,0) as the western position of " />
+        <item itemvalue="JUnit.SendCommandToRoverTest.move it forward one position when an F command is sent" />
+        <item itemvalue="JUnit.SendCommandToRoverTest.stop moving when obstacle found" />
+        <item itemvalue="JUnit.SendCommandToRoverTest.move as specified when no obstacles" />
+        <item itemvalue="JUnit.AroverShould.move as specified when no obstacles" />
+        <item itemvalue="JUnit.AroverShould.stop moving when obstacle found" />
       </list>
     </recent_temporary>
   </component>
@@ -268,44 +324,45 @@
       <workItem from="1565182882696" duration="359000" />
       <workItem from="1565270452881" duration="10546000" />
       <workItem from="1565719089174" duration="9581000" />
-      <workItem from="1566324427277" duration="9022000" />
+      <workItem from="1566324427277" duration="10237000" />
+      <workItem from="1566929442064" duration="6257000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="a2x2PlateauShould - 2019.08.20 at 16h 23m 46s.xml">
-      <configuration name="a2x2PlateauShould" configurationId="JUnit" />
+    <history-entry file="a2x2PlateauShould_return_(0,1)_as_the_northern_position_of_ - 2019.08.27 at 15h 13m 42s.xml">
+      <configuration name="a2x2PlateauShould.return (0,1) as the northern position of " configurationId="JUnit" />
     </history-entry>
-    <history-entry file="a2x2PlateauShould - 2019.08.20 at 16h 30m 41s.xml">
-      <configuration name="a2x2PlateauShould" configurationId="JUnit" />
+    <history-entry file="ARobertShould - 2019.08.27 at 15h 13m 48s.xml">
+      <configuration name="ARobertShould" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="a2x2PlateauShould - 2019.08.20 at 16h 47m 38s.xml">
-      <configuration name="a2x2PlateauShould" configurationId="JUnit" />
+    <history-entry file="ARobertShould_stop_moving_when_obstacle_found - 2019.08.27 at 15h 14m 38s.xml">
+      <configuration name="ARobertShould.stop moving when obstacle found" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="a2x2PlateauShould - 2019.08.20 at 16h 49m 27s.xml">
-      <configuration name="a2x2PlateauShould" configurationId="JUnit" />
+    <history-entry file="AroverShould_move_as_specified_when_no_obstacles - 2019.08.27 at 15h 15m 32s.xml">
+      <configuration name="AroverShould.move as specified when no obstacles" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="a2x2PlateauShould - 2019.08.20 at 17h 00m 12s.xml">
-      <configuration name="a2x2PlateauShould" configurationId="JUnit" />
+    <history-entry file="AroverShould_move_as_specified_when_no_obstacles - 2019.08.27 at 15h 24m 01s.xml">
+      <configuration name="AroverShould.move as specified when no obstacles" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="a2x2PlateauShould_return_true_if_there_is_an_obstacle_at_the_given_position - 2019.08.20 at 17h 00m 19s.xml">
-      <configuration name="a2x2PlateauShould.return true if there is an obstacle at the given position" configurationId="JUnit" />
+    <history-entry file="AroverShould_stop_moving_when_obstacle_found - 2019.08.27 at 15h 24m 09s.xml">
+      <configuration name="AroverShould.stop moving when obstacle found" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="a2x2PlateauShould_return_true_if_there_is_an_obstacle_at_the_given_position - 2019.08.20 at 17h 04m 48s.xml">
-      <configuration name="a2x2PlateauShould.return true if there is an obstacle at the given position" configurationId="JUnit" />
+    <history-entry file="AroverShould_move_as_specified_when_no_obstacles - 2019.08.27 at 15h 26m 15s.xml">
+      <configuration name="AroverShould.move as specified when no obstacles" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="a2x2PlateauShould_return_true_if_there_is_an_obstacle_at_the_given_position - 2019.08.20 at 17h 17m 00s.xml">
-      <configuration name="a2x2PlateauShould.return true if there is an obstacle at the given position" configurationId="JUnit" />
+    <history-entry file="MoveRoverTest_move_as_specified_when_no_obstacles - 2019.08.27 at 15h 27m 48s.xml">
+      <configuration name="MoveRoverTest.move as specified when no obstacles" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="a2x2PlateauShould_return_false_if_there__is_not_an_obstacle_at_the_given_position - 2019.08.20 at 17h 18m 40s.xml">
-      <configuration name="a2x2PlateauShould.return false if there  is not an obstacle at the given position" configurationId="JUnit" />
+    <history-entry file="MoveRoverTest_stop_moving_when_obstacle_found - 2019.08.27 at 15h 33m 50s.xml">
+      <configuration name="MoveRoverTest.stop moving when obstacle found" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="a2x2PlateauShould_return_false_if_there__is_not_an_obstacle_at_the_given_position - 2019.08.20 at 17h 18m 47s.xml">
-      <configuration name="a2x2PlateauShould.return false if there  is not an obstacle at the given position" configurationId="JUnit" />
+    <history-entry file="MoveRoverTest_move_it_forward_one_position_when_an_F_command_is_sent - 2019.08.27 at 16h 41m 35s.xml">
+      <configuration name="MoveRoverTest.move it forward one position when an F command is sent" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35561000" />
+    <option name="totallyTimeSpent" value="43033000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -320,7 +377,7 @@
     <frame x="0" y="0" width="1536" height="864" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.15838926" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.1624161" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -328,8 +385,8 @@
       <window_info id="Favorites" order="5" side_tool="true" />
       <window_info id="Capture Tool" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4899329" weight="0.24301676" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32960895" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4899329" weight="0.22346368" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -355,7 +412,7 @@
       <window_info anchor="right" id="Maven" order="10" />
     </layout>
     <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.15838926" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1624161" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -363,8 +420,8 @@
       <window_info id="Favorites" order="5" side_tool="true" />
       <window_info id="Capture Tool" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4899329" visible="true" weight="0.24301676" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32960895" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4899329" weight="0.22346368" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -409,13 +466,6 @@
     <entry file="file://$PROJECT_DIR$/src/main/kotlin/Alumno.kt" />
     <entry file="file://$PROJECT_DIR$/src/test/kotlin/AlumnoTest.kt" />
     <entry file="file://$PROJECT_DIR$/src/test/kotlin/PlateauTest.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/domain/Robert.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="4" column="19" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
@@ -430,27 +480,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/domain/Position.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/kotlin/KataTest.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="9" column="30" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
+        <state relative-caret-position="400">
+          <caret line="18" column="1" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
           <folding>
-            <element signature="e#0#66#0" expanded="true" />
+            <element signature="e#0#65#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/domain/Position.kt">
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/domain/Rover.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="363">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
+        <state relative-caret-position="132">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/kotlin/PlateauTest.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="84" column="29" lean-forward="true" selection-start-line="84" selection-start-column="29" selection-end-line="84" selection-end-column="29" />
+        <state relative-caret-position="2673">
+          <caret line="87" selection-start-line="87" selection-end-line="87" />
           <folding>
             <element signature="e#0#116#0" expanded="true" />
           </folding>
@@ -459,8 +516,36 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/kotlin/domain/Plateau.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
-          <caret line="46" column="8" selection-start-line="46" selection-start-column="8" selection-end-line="46" selection-end-column="8" />
+        <state relative-caret-position="66">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/domain/Rovers.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="99">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/RoversInMemory.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="33">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/kotlin/action/SendCommandToRoverTest.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="13" column="44" lean-forward="true" selection-start-line="13" selection-start-column="44" selection-end-line="13" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/action/SendCommandToRover.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
         </state>
       </provider>
     </entry>
