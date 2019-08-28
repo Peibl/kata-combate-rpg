@@ -1,5 +1,5 @@
 ### Intellij+all ###
-.idea/**
+.idea/
 out/
 *.iml
 *.ipr
