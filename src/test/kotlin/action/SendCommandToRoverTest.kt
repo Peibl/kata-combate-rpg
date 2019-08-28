@@ -2,6 +2,7 @@ package action
 
 import org.junit.Assert
 import org.junit.Test
+import RoversInMemory
 
 class SendCommandToRoverTest {
     private val SOME_ROVER_ID = 1
