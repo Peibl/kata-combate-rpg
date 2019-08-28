@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="SumTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-08-06T18:50:36" hostname="DESKTOP-VOEG1QV" time="0.016">
-  <properties/>
-  <testcase name="1 plus 2 is 3" classname="SumTest" time="0.016"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
