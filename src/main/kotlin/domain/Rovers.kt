@@ -1,3 +1,0 @@
-package domain
-
-interface Rovers {}
