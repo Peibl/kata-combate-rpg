@@ -17,15 +17,22 @@ class Test {
     }
 
     @Test
-    fun `character attacks another and it decrease health in 50`() {
+    fun `a character attacks another and it decrease health in 50`() {
         val repo = RPGCharacters()
         val victim = CreateCharacter(repo).execute()
         val damage = 50
         AttackCharacter(repo).execute(victim.id, damage)
-
-
         Assert.assertEquals(950, victim.health)
     }
 
+    @Test
+    fun `a character attacks another and kill it`() {
+        val repo = RPGCharacters()
+        val victim = CreateCharacter(repo).execute()
+        val damage = 1050
+        AttackCharacter(repo).execute(victim.id, damage)
+        Assert.assertEquals(0, victim.health)
+        Assert.assertFalse(victim.alive)
+    }
 
 }
