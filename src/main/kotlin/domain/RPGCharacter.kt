@@ -1,5 +1,5 @@
 package domain
 
-class RPGCharacter(val health: Int,val level: Int,val alive: Boolean) {
+class RPGCharacter(var health: Int,var level: Int,var alive: Boolean) {
 
 }
