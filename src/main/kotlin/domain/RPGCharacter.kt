@@ -11,4 +11,8 @@ class RPGCharacter(var health: Int, var level: Int, var alive: Boolean, var id: 
         }
     }
 
+    fun increaseHealthIn(health: Int) {
+        this.health+=health
+    }
+
 }
