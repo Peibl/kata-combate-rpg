@@ -9,8 +9,7 @@ import repository.RPGCharacters
 import java.lang.RuntimeException
 
 class Test {
-    val INITIAL_HEALTH = 1000
-    val INITIAL_LEVEL = 1
+
     val SOME_AGGRESSOR_ID = 5
     val SOME_CHARACTER_ID = 5555
     var repo = RPGCharacters()
@@ -19,13 +18,6 @@ class Test {
         this.repo = RPGCharacters()
     }
 
-    @Test
-    fun `create character`() {
-        val createdCharacter = CreateCharacter(repo).execute()
-        Assert.assertEquals(INITIAL_HEALTH, createdCharacter.health)
-        Assert.assertEquals(INITIAL_LEVEL, createdCharacter.level)
-        Assert.assertTrue(createdCharacter.alive)
-    }
 
     @Test
     fun `a character attacks another and it decrease health in 50`() {
@@ -89,6 +81,14 @@ class Test {
 
     @Test()
     fun `a character cure itself in 50`() {
+        val character = RPGCharacter(100, 1, true, 1)
+        this.repo.add(character)
+        CureCharacter(repo).execute(character.id, character.id, 50)
+        Assert.assertEquals(150, character.health)
+    }
+
+    @Test()
+    fun `xxx`() {
         val character = RPGCharacter(100, 1, true, 1)
         this.repo.add(character)
         CureCharacter(repo).execute(character.id, character.id, 50)
