@@ -6,6 +6,7 @@ import org.junit.Assert
 import org.junit.Before
 import org.junit.Test
 import repository.RPGCharacters
+import java.lang.RuntimeException
 
 class Test {
     val INITIAL_HEALTH = 1000
@@ -16,6 +17,7 @@ class Test {
         this.repo = RPGCharacters()
 
     }
+
 
     @Test
     fun `create character`() {
@@ -52,9 +54,30 @@ class Test {
         val character = RPGCharacter(950, 1, true, 1)
         this.repo.add(character)
 
-        CureCharacter(repo).execute(character.id,50)
+        CureCharacter(repo).execute(character.id, 50)
 
         Assert.assertEquals(1000, character.health)
     }
 
+
+    @Test
+    fun `a character cant cure another with full health`() {
+        val character = CreateCharacter(repo).execute()
+        try {
+            CureCharacter(repo).execute(character.id, 50)
+            Assert.fail();
+        } catch (e: RuntimeException) {
+            Assert.assertTrue(true)
+        }
+
+        Assert.assertEquals(1000, character.health)
+    }
+
+    @Test(expected = RuntimeException::class)
+    fun `a character try cure a dead character`() {
+        val character = RPGCharacter(0, 1, false, 1)
+        this.repo.add(character)
+
+        CureCharacter(repo).execute(character.id, 50)
+    }
 }
