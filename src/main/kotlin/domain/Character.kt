@@ -1,6 +1,6 @@
 package domain
 
-class Character(var level: Int) : Healthable {
+class Character(var level: Int, var position: Int, var attackType: AttackType) : Healthable {
     var id: Int = 0
     var health: Healthable = FullHealth(this)
 

@@ -1,6 +1,7 @@
 package action
 
 import repository.Characters
+import java.lang.Math.abs
 
 class AttackCharacter(var characters: Characters) {
 
@@ -19,6 +20,10 @@ class AttackCharacter(var characters: Characters) {
 
         if ((attacker.level - victim.level) >= 5) {
             d = damage + (damage / 2)
+        }
+
+        if (abs(attacker.position - victim.position) > attacker.attackType.range) {
+            throw UnsupportedOperationException()
         }
 
         victim.decreaseHealthIn(d)

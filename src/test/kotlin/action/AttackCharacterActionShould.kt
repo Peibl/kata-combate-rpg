@@ -1,6 +1,10 @@
 package action
 
+import CharacterBuilder.Companion.aCharacter
+import domain.AttackType
 import domain.Character
+import domain.Melee
+import domain.Ranged
 import org.junit.Assert
 import org.junit.Before
 import org.junit.Test
@@ -8,6 +12,7 @@ import repository.Characters
 
 
 internal class AttackCharacterActionShould {
+    private val SOME_ATTACK_TYPE: AttackType = Melee()
     var characters = Characters()
     private val SOME_LEVEL = 1
     private val SOME_DAMAGE = 50
@@ -68,7 +73,32 @@ internal class AttackCharacterActionShould {
         val victim = givenACharacterForAttack()
 
         AttackCharacter(characters).execute(victim.id, victim.id, SOME_DAMAGE)
+    }
 
+    @Test(expected = UnsupportedOperationException::class)
+    fun `failed if victim is out of range of melee attacker`() {
+        val attacker = aCharacter().positioned(0).withAttackType(Melee()).build()
+        val victim = aCharacter().positioned(15).withAttackType(SOME_ATTACK_TYPE).build()
+        this.characters.add(attacker)
+        this.characters.add(victim)
+
+        AttackCharacter(characters).execute(attacker.id, victim.id, SOME_DAMAGE)
+
+        val expectedHealth = (1000f - SOME_DAMAGE)
+        Assert.assertEquals(expectedHealth, victim.healthAmount())
+    }
+
+    @Test(expected = UnsupportedOperationException::class)
+    fun `failed if victim is out of range of ranged attacker`() {
+        val attacker = aCharacter().positioned(0).withAttackType(Ranged()).build()
+        val victim = aCharacter().positioned(50).withAttackType(SOME_ATTACK_TYPE).build()
+        this.characters.add(attacker)
+        this.characters.add(victim)
+
+        AttackCharacter(characters).execute(attacker.id, victim.id, SOME_DAMAGE)
+
+        val expectedHealth = (1000f - SOME_DAMAGE)
+        Assert.assertEquals(expectedHealth, victim.healthAmount())
     }
 
     private fun givenACharacterForAttack(): Character {
@@ -80,7 +110,7 @@ internal class AttackCharacterActionShould {
     }
 
     private fun givenCharacterWithLevel(level: Int): Character {
-        val character = Character(level)
+        val character = Character(level, 0, Melee())
         this.characters.add(character)
         return character
     }

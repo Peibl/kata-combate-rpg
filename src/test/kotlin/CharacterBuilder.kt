@@ -25,7 +25,7 @@ class CharacterBuilder private constructor() {
     }
 
     fun build(): Character {
-        return Character(level)
+        return Character(this.level, this.position, this.attackType)
     }
 
     companion object {

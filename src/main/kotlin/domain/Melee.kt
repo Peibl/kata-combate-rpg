@@ -1,4 +1,4 @@
 package domain
 
-class Melee : AttackType {
+class Melee(override val range: Int = 2) : AttackType {
 }

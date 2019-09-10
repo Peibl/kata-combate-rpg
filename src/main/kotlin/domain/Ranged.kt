@@ -1,4 +1,4 @@
 package domain
 
-class Ranged : AttackType {
+class Ranged(override val range: Int = 20) : AttackType {
 }

@@ -3,6 +3,7 @@ package action
 import domain.Health
 import domain.NoneHealth
 import domain.Character
+import domain.Melee
 import org.junit.Before
 import org.junit.Test
 import repository.Characters
@@ -50,21 +51,21 @@ internal class CureCharacterActionShould {
     }
 
     private fun givenAFullHealthCharacter(): Character {
-        val character = Character(1)
+        val character = Character(1, 0, Melee())
         this.characters.add(character)
         return character
     }
 
 
     private fun givenADamageCharacterWithHealthIn(health: Float): Character {
-        val character = Character(1)
+        val character = Character(1, 0, Melee())
         character.health = Health(health, character)
         this.characters.add(character)
         return character
     }
 
     private fun givenADeadCharacter(): Character {
-        val character = Character(1)
+        val character = Character(1, 0, Melee())
         character.health = NoneHealth(character)
         this.characters.add(character)
         return character
