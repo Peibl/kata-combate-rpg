@@ -2,20 +2,19 @@ package action
 
 import domain.Health
 import domain.NoneHealth
-import domain.RPGCharacter
-import org.junit.Assert
+import domain.Character
 import org.junit.Before
 import org.junit.Test
-import repository.RPGCharacters
+import repository.Characters
 
 
 internal class CureCharacterActionShould {
     private val SOME_HEALTH: Int = 50
     private val SOME_HEALER_ID: Int = 22
-    var characters = RPGCharacters()
+    var characters = Characters()
     @Before
     fun setUp() {
-        this.characters = RPGCharacters()
+        this.characters = Characters()
     }
 
     @Test(expected = UnsupportedOperationException::class)
@@ -50,22 +49,22 @@ internal class CureCharacterActionShould {
         CureCharacter(characters).execute(SOME_HEALER_ID, deadCharacter.id, SOME_HEALTH)
     }
 
-    private fun givenAFullHealthCharacter(): RPGCharacter {
-        val character = RPGCharacter(1)
+    private fun givenAFullHealthCharacter(): Character {
+        val character = Character(1)
         this.characters.add(character)
         return character
     }
 
 
-    private fun givenADamageCharacterWithHealthIn(health: Float): RPGCharacter {
-        val character = RPGCharacter(1)
+    private fun givenADamageCharacterWithHealthIn(health: Float): Character {
+        val character = Character(1)
         character.health = Health(health, character)
         this.characters.add(character)
         return character
     }
 
-    private fun givenADeadCharacter(): RPGCharacter {
-        val character = RPGCharacter(1)
+    private fun givenADeadCharacter(): Character {
+        val character = Character(1)
         character.health = NoneHealth(character)
         this.characters.add(character)
         return character

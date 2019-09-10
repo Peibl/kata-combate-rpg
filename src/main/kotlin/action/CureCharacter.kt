@@ -1,16 +1,15 @@
 package action
 
-import repository.RPGCharacters
-import java.lang.RuntimeException
+import repository.Characters
 import java.lang.UnsupportedOperationException
 
-class CureCharacter(var rpgCharacters: RPGCharacters) {
+class CureCharacter(var characters: Characters) {
 
     fun execute(fromtId: Int, toId: Int, health: Int) {
         if (fromtId !== toId) {
             throw UnsupportedOperationException()
         }
-        val rpgCharacter = this.rpgCharacters.findById(toId)
+        val rpgCharacter = this.characters.findById(toId)
         rpgCharacter.increaseHealthIn(health)
     }
 }

@@ -3,16 +3,16 @@ package action
 import org.junit.Assert
 import org.junit.Before
 import org.junit.Test
-import repository.RPGCharacters
+import repository.Characters
 
 
 internal class CreateCharacterActionShould {
-    var characters = RPGCharacters()
+    var characters = Characters()
     val INITIAL_HEALTH = 1000f
     val INITIAL_LEVEL = 1
     @Before
     fun setUp() {
-        this.characters = RPGCharacters()
+        this.characters = Characters()
     }
 
     @Test

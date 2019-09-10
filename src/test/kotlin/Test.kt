@@ -1,13 +1,3 @@
-import action.AttackCharacter
-import action.CreateCharacter
-import action.CureCharacter
-import domain.RPGCharacter
-import org.junit.Assert
-import org.junit.Before
-import org.junit.Test
-import repository.RPGCharacters
-import java.lang.RuntimeException
-
 class Test {
 
 //    val SOME_AGGRESSOR_ID = 5

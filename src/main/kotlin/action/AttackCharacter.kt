@@ -1,8 +1,8 @@
 package action
 
-import repository.RPGCharacters
+import repository.Characters
 
-class AttackCharacter(var rpgCharacters: RPGCharacters) {
+class AttackCharacter(var characters: Characters) {
 
 
     fun execute(fromId: Int, toId: Int, damage: Int) {
@@ -10,8 +10,8 @@ class AttackCharacter(var rpgCharacters: RPGCharacters) {
             throw UnsupportedOperationException()
         }
         var d = damage
-        val attacker = this.rpgCharacters.findById(fromId)
-        val victim = this.rpgCharacters.findById(toId)
+        val attacker = this.characters.findById(fromId)
+        val victim = this.characters.findById(toId)
 
         if ((victim.level - attacker.level) >= 5) {
             d = damage / 2

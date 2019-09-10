@@ -1,14 +1,14 @@
 package action
 
-import domain.RPGCharacter
-import repository.RPGCharacters
+import domain.Character
+import repository.Characters
 
-class CreateCharacter(var rpgCharacters: RPGCharacters) {
+class CreateCharacter(var characters: Characters) {
     var INITIAL_LEVEL = 1
 
-    fun execute(): RPGCharacter {
-        val rpgCharacter = RPGCharacter(INITIAL_LEVEL)
-        this.rpgCharacters.add(rpgCharacter)
+    fun execute(): Character {
+        val rpgCharacter = Character(INITIAL_LEVEL)
+        this.characters.add(rpgCharacter)
         return rpgCharacter;
     }
 

@@ -1,6 +1,6 @@
 package domain
 
-class Health(var health: Float, var character: RPGCharacter) : Healthable {
+class Health(var health: Float, var character: Character) : Healthable {
     override fun decreaseHealthIn(damage: Int) {
         if (health - damage <= 0) {
             character.health = NoneHealth(character)

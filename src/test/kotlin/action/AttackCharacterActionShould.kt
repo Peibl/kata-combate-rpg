@@ -1,19 +1,19 @@
 package action
 
-import domain.RPGCharacter
+import domain.Character
 import org.junit.Assert
 import org.junit.Before
 import org.junit.Test
-import repository.RPGCharacters
+import repository.Characters
 
 
 internal class AttackCharacterActionShould {
-    var characters = RPGCharacters()
+    var characters = Characters()
     private val SOME_LEVEL = 1
     private val SOME_DAMAGE = 50
     @Before
     fun setUp() {
-        this.characters = RPGCharacters()
+        this.characters = Characters()
     }
 
     @Test
@@ -71,20 +71,16 @@ internal class AttackCharacterActionShould {
 
     }
 
-    private fun givenACharacterForAttack(): RPGCharacter {
-        val character = RPGCharacter(SOME_LEVEL)
-        this.characters.add(character)
-        return character
+    private fun givenACharacterForAttack(): Character {
+        return givenCharacterWithLevel(SOME_LEVEL)
     }
 
-    private fun givenAttackerCharacter(): RPGCharacter {
-        val character = RPGCharacter(SOME_LEVEL)
-        this.characters.add(character)
-        return character
+    private fun givenAttackerCharacter(): Character {
+        return givenCharacterWithLevel(SOME_LEVEL)
     }
 
-    private fun givenCharacterWithLevel(level: Int): RPGCharacter {
-        val character = RPGCharacter(level)
+    private fun givenCharacterWithLevel(level: Int): Character {
+        val character = Character(level)
         this.characters.add(character)
         return character
     }

@@ -2,7 +2,7 @@ package domain
 
 import java.lang.UnsupportedOperationException
 
-class NoneHealth(character: RPGCharacter) : Healthable {
+class NoneHealth(character: Character) : Healthable {
     override fun decreaseHealthIn(damage: Int) {
         throw UnsupportedOperationException()
     }
