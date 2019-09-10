@@ -7,19 +7,19 @@ import repository.RPGCharacters
 
 
 internal class CreateCharacterActionShould {
-    var repo = RPGCharacters()
-    val INITIAL_HEALTH = 1000
+    var characters = RPGCharacters()
+    val INITIAL_HEALTH = 1000f
     val INITIAL_LEVEL = 1
     @Before
     fun setUp() {
-        this.repo = RPGCharacters()
+        this.characters = RPGCharacters()
     }
 
     @Test
     fun `create character`() {
-        val createdCharacter = CreateCharacter(repo).execute()
-        Assert.assertEquals(INITIAL_HEALTH, createdCharacter.health)
+        val createdCharacter = CreateCharacter(characters).execute()
+        Assert.assertEquals(INITIAL_HEALTH, createdCharacter.healthAmount())
         Assert.assertEquals(INITIAL_LEVEL, createdCharacter.level)
-        Assert.assertTrue(createdCharacter.alive)
+        Assert.assertTrue(createdCharacter.isAlive())
     }
 }

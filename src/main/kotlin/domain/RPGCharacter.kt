@@ -1,27 +1,23 @@
 package domain
 
-import java.lang.RuntimeException
+class RPGCharacter(var level: Int, var id: Int = 0) : Healthable {
 
-class RPGCharacter(var health: Int, var level: Int, var alive: Boolean, var id: Int = 0) {
-    val INITIAL_HEALTH = 1000
-    fun decreaseHealthIn(damage: Int) {
+    var health: Healthable = FullHealth(this)
 
-        if (this.health >= damage) {
-            this.health -= damage
-        } else {
-            this.health = 0
-            this.alive = false
-        }
+    override fun decreaseHealthIn(damage: Int) {
+        this.health.decreaseHealthIn(damage)
     }
 
-    fun increaseHealthIn(health: Int) {
-        if (!alive) {
-            throw RuntimeException()
-        }
-        if (this.health == 1000) {
-            throw RuntimeException()
-        }
-        this.health += health
+    override fun increaseHealthIn(health: Int) {
+        this.health.increaseHealthIn(health)
+    }
+
+    override fun healthAmount(): Float {
+        return this.health.healthAmount()
+    }
+
+    override fun isAlive(): Boolean {
+        return this.health.isAlive()
     }
 
 }
