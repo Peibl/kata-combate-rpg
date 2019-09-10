@@ -1,7 +1,7 @@
 package domain
 
-class RPGCharacter(var level: Int, var id: Int = 0) : Healthable {
-
+class RPGCharacter(var level: Int) : Healthable {
+    var id: Int = 0
     var health: Healthable = FullHealth(this)
 
     override fun decreaseHealthIn(damage: Int) {
