@@ -1,15 +1,15 @@
 package action
 
 import repository.Characters
+import rule.AutoAttackRule
+import rule.RangeRule
 import java.lang.Math.abs
 
 class AttackCharacter(var characters: Characters) {
 
 
     fun execute(fromId: Int, toId: Int, damage: Int) {
-        if (fromId === toId) {
-            throw UnsupportedOperationException()
-        }
+        AutoAttackRule(fromId, toId).verify()
         var d = damage
         val attacker = this.characters.findById(fromId)
         val victim = this.characters.findById(toId)
@@ -22,11 +22,10 @@ class AttackCharacter(var characters: Characters) {
             d = damage + (damage / 2)
         }
 
-        if (abs(attacker.position - victim.position) > attacker.attackType.range) {
-            throw UnsupportedOperationException()
-        }
+        RangeRule(attacker, victim).verify()
 
         victim.decreaseHealthIn(d)
     }
+
 
 }

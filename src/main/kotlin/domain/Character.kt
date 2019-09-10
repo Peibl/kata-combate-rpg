@@ -3,6 +3,7 @@ package domain
 class Character(var level: Int, var position: Int, var attackType: AttackType) : Healthable {
     var id: Int = 0
     var health: Healthable = FullHealth(this)
+    var faction: Faction = NoFaction()
 
     override fun decreaseHealthIn(damage: Int) {
         this.health.decreaseHealthIn(damage)

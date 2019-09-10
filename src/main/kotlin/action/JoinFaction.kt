@@ -1,0 +1,4 @@
+package action
+
+class JoinFaction {
+}
