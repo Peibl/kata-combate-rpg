@@ -1,13 +1,16 @@
-import domain.AttackType
-import domain.Character
-import domain.Melee
+import domain.*
 
 class CharacterBuilder private constructor() {
     private var id: Int = 1
     private var level: Int = 1
     private var position: Int = 0
     private var attackType: AttackType = Melee()
+    private var faction: Faction = SomeFaction()
 
+    fun withFaction(faction: Faction): CharacterBuilder {
+        this.faction = faction
+        return this
+    }
 
     fun withLevel(level: Int): CharacterBuilder {
         this.level = level
