@@ -1,4 +1,4 @@
 package domain
 
-class NoFaction : Faction {
+class NoFaction(override var id: Int = 0) : Faction {
 }
