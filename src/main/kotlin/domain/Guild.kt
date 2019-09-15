@@ -1,5 +1,5 @@
 package domain
 
-interface Faction {
+interface Guild {
     fun canAttack(victim: Character): Boolean
 }

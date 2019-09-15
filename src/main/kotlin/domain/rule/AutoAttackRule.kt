@@ -1,4 +1,4 @@
-package rule
+package domain.rule
 
 class AutoAttackRule(var fromId: Int, var toId: Int) : Rule {
     override fun verify() {

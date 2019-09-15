@@ -1,12 +1,12 @@
 package action
 
 import domain.DamageRule
-import repository.Characters
-import rule.AutoAttackRule
-import rule.FactionRule
-import rule.RangeRule
+import domain.rule.AutoAttackRule
+import domain.rule.SameGuildRule
+import domain.rule.RangeRule
+import infrastructure.Characters
 
-class AttackCharacter(var characters: Characters) {
+class AttackCharacterAction(var characters: Characters) {
 
 
     fun execute(fromId: Int, toId: Int, damageValue: Int) {
@@ -15,7 +15,7 @@ class AttackCharacter(var characters: Characters) {
 
         AutoAttackRule(fromId, toId).verify()
         RangeRule(attacker, victim).verify()
-        FactionRule(attacker,victim).verify()
+        SameGuildRule(attacker, victim).verify()
 
         var damage = DamageRule(damageValue)
         damage.calculate(victim, attacker)

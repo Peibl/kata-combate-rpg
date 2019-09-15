@@ -4,7 +4,7 @@ class Character(
     var level: Int,
     var position: Int,
     var attackType: AttackType,
-    var factions: MutableList<Faction>,
+    var guilds: MutableList<Guild>,
     var health: Healthable
 ) {
     var id: Int = 0
@@ -24,7 +24,7 @@ class Character(
         return this.health.isAlive()
     }
 
-    fun addFaction(faction: Faction) {
-        this.factions.add(faction)
+    fun addGuild(guild: Guild) {
+        this.guilds.add(guild)
     }
 }

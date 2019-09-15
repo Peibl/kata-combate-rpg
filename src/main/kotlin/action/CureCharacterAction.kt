@@ -1,9 +1,9 @@
 package action
 
-import repository.Characters
+import infrastructure.Characters
 import java.lang.UnsupportedOperationException
 
-class CureCharacter(var characters: Characters) {
+class CureCharacterAction(var characters: Characters) {
 
     fun execute(fromtId: Int, toId: Int, health: Int) {
         if (fromtId !== toId) {

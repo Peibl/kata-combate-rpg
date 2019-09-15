@@ -6,10 +6,10 @@ class CharacterBuilder private constructor() {
     private var level = 1
     private var position = 0
     private var attackType: AttackType = Melee()
-    private var factions = mutableListOf<Faction>()
+    private var guilds = mutableListOf<Guild>()
 
-    fun withFactions(factions: MutableList<Faction>): CharacterBuilder {
-        this.factions = factions
+    fun withGuilds(guilds: MutableList<Guild>): CharacterBuilder {
+        this.guilds = guilds
         return this
     }
 
@@ -34,7 +34,7 @@ class CharacterBuilder private constructor() {
     }
 
     fun build(): Character {
-        return Character(this.level, this.position, this.attackType, this.factions, this.health)
+        return Character(this.level, this.position, this.attackType, this.guilds, this.health)
     }
 
     companion object {

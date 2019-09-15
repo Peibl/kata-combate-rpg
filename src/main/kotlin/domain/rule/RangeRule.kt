@@ -1,4 +1,4 @@
-package rule
+package domain.rule
 
 import domain.Character
 import java.lang.Math.abs

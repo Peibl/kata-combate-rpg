@@ -2,11 +2,11 @@ package action
 
 import CharacterBuilder.Companion.aCharacter
 import domain.*
-import exceptions.SameFactionException
+import domain.exception.SameGuildException
 import org.junit.Assert
 import org.junit.Before
 import org.junit.Test
-import repository.Characters
+import infrastructure.CharactersInMemory
 
 
 internal class AttackCharacterActionShould {
@@ -15,7 +15,7 @@ internal class AttackCharacterActionShould {
         val attacker = givenAttackerCharacter()
         val victim = givenACharacterForAttack()
 
-        AttackCharacter(characters).execute(attacker.id, victim.id, SOME_DAMAGE)
+        AttackCharacterAction(characters).execute(attacker.id, victim.id, SOME_DAMAGE)
 
         val expectedHealth = (1000f - SOME_DAMAGE)
         Assert.assertEquals(expectedHealth, victim.healthAmount())
@@ -27,7 +27,7 @@ internal class AttackCharacterActionShould {
         val victim = givenCharacterWithLevel(15)
 
         var damage = 100;
-        AttackCharacter(characters).execute(attacker.id, victim.id, damage)
+        AttackCharacterAction(characters).execute(attacker.id, victim.id, damage)
 
         val expectedHealth = (1000f - (damage / 2))
         Assert.assertEquals(expectedHealth, victim.healthAmount())
@@ -39,7 +39,7 @@ internal class AttackCharacterActionShould {
         val victim = givenCharacterWithLevel(6)
 
         var damage = 100;
-        AttackCharacter(characters).execute(attacker.id, victim.id, damage)
+        AttackCharacterAction(characters).execute(attacker.id, victim.id, damage)
 
         val expectedHealth = (1000f - (damage + (damage / 2)))
         Assert.assertEquals(expectedHealth, victim.healthAmount())
@@ -51,7 +51,7 @@ internal class AttackCharacterActionShould {
         val victim = givenACharacterForAttack()
 
         val damage = 1500
-        AttackCharacter(characters).execute(attacker.id, victim.id, damage)
+        AttackCharacterAction(characters).execute(attacker.id, victim.id, damage)
 
         Assert.assertEquals(0f, victim.healthAmount())
         Assert.assertFalse(victim.isAlive())
@@ -61,7 +61,7 @@ internal class AttackCharacterActionShould {
     fun `fail if character attacks itself`() {
         val victim = givenACharacterForAttack()
 
-        AttackCharacter(characters).execute(victim.id, victim.id, SOME_DAMAGE)
+        AttackCharacterAction(characters).execute(victim.id, victim.id, SOME_DAMAGE)
     }
 
     @Test(expected = UnsupportedOperationException::class)
@@ -71,7 +71,7 @@ internal class AttackCharacterActionShould {
         this.characters.add(attacker)
         this.characters.add(victim)
 
-        AttackCharacter(characters).execute(attacker.id, victim.id, SOME_DAMAGE)
+        AttackCharacterAction(characters).execute(attacker.id, victim.id, SOME_DAMAGE)
 
         val expectedHealth = (1000f - SOME_DAMAGE)
         Assert.assertEquals(expectedHealth, victim.healthAmount())
@@ -84,41 +84,41 @@ internal class AttackCharacterActionShould {
         this.characters.add(attacker)
         this.characters.add(victim)
 
-        AttackCharacter(characters).execute(attacker.id, victim.id, SOME_DAMAGE)
+        AttackCharacterAction(characters).execute(attacker.id, victim.id, SOME_DAMAGE)
 
         val expectedHealth = (1000f - SOME_DAMAGE)
         Assert.assertEquals(expectedHealth, victim.healthAmount())
     }
 
 
-    @Test(expected = SameFactionException::class)
-    fun `fail if characters has the same faction`() {
-        val attacker = aCharacter().withFactions(mutableListOf(FACTIONS.RED_FACTION)).build()
-        val victim = aCharacter().withFactions(mutableListOf(FACTIONS.RED_FACTION)).build()
+    @Test(expected = SameGuildException::class)
+    fun `fail if characters has the same guild`() {
+        val attacker = aCharacter().withGuilds(mutableListOf(GUILDS.RED_GUILD)).build()
+        val victim = aCharacter().withGuilds(mutableListOf(GUILDS.RED_GUILD)).build()
         this.characters.add(attacker)
         this.characters.add(victim)
 
-        AttackCharacter(characters).execute(attacker.id, victim.id, SOME_DAMAGE)
+        AttackCharacterAction(characters).execute(attacker.id, victim.id, SOME_DAMAGE)
     }
 
     @Test()
-    fun `not fail if both characters has neutral faction`() {
-        val attacker = aCharacter().withFactions(mutableListOf(FACTIONS.NEUTRAL_FACTION)).build()
-        val victim = aCharacter().withFactions(mutableListOf(FACTIONS.NEUTRAL_FACTION)).build()
+    fun `not fail if both characters has neutral guild`() {
+        val attacker = aCharacter().withGuilds(mutableListOf(GUILDS.NEUTRAL_GUILD)).build()
+        val victim = aCharacter().withGuilds(mutableListOf(GUILDS.NEUTRAL_GUILD)).build()
         this.characters.add(attacker)
         this.characters.add(victim)
 
-        AttackCharacter(characters).execute(attacker.id, victim.id, SOME_DAMAGE)
+        AttackCharacterAction(characters).execute(attacker.id, victim.id, SOME_DAMAGE)
     }
 
     @Test()
-    fun `not fail if both characters have different faction`() {
-        val attacker = aCharacter().withFactions(mutableListOf(FACTIONS.RED_FACTION)).build()
-        val victim = aCharacter().withFactions(mutableListOf(FACTIONS.BLUE_FACTION)).build()
+    fun `not fail if both characters have different guild`() {
+        val attacker = aCharacter().withGuilds(mutableListOf(GUILDS.RED_GUILD)).build()
+        val victim = aCharacter().withGuilds(mutableListOf(GUILDS.BLUE_GUILD)).build()
         this.characters.add(attacker)
         this.characters.add(victim)
 
-        AttackCharacter(characters).execute(attacker.id, victim.id, SOME_DAMAGE)
+        AttackCharacterAction(characters).execute(attacker.id, victim.id, SOME_DAMAGE)
     }
 
 
@@ -136,12 +136,12 @@ internal class AttackCharacterActionShould {
         return character
     }
     private val SOME_ATTACK_TYPE: AttackType = Melee()
-    var characters = Characters()
+    var characters = CharactersInMemory()
     private val SOME_LEVEL = 1
     private val SOME_DAMAGE = 50
     @Before
     fun setUp() {
-        this.characters = Characters()
+        this.characters = CharactersInMemory()
     }
 
 }

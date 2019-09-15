@@ -4,19 +4,18 @@ import CharacterBuilder.Companion.aCharacter
 import domain.Health
 import domain.NoneHealth
 import domain.Character
-import domain.Melee
 import org.junit.Before
 import org.junit.Test
-import repository.Characters
+import infrastructure.CharactersInMemory
 
 
 internal class CureCharacterActionShould {
     private val SOME_HEALTH: Int = 50
     private val SOME_HEALER_ID: Int = 22
-    var characters = Characters()
+    var characters = CharactersInMemory()
     @Before
     fun setUp() {
-        this.characters = Characters()
+        this.characters = CharactersInMemory()
     }
 
     @Test(expected = UnsupportedOperationException::class)
@@ -24,7 +23,7 @@ internal class CureCharacterActionShould {
         val damageCharacter = givenADamageCharacterWithHealthIn(900f)
 
         val healthToCure = 50
-        CureCharacter(characters).execute(SOME_HEALER_ID, damageCharacter.id, healthToCure)
+        CureCharacterAction(characters).execute(SOME_HEALER_ID, damageCharacter.id, healthToCure)
 
     }
 
@@ -33,7 +32,7 @@ internal class CureCharacterActionShould {
         val damageCharacter = givenADamageCharacterWithHealthIn(900f)
 
         val healthToCure = 500
-        CureCharacter(characters).execute(SOME_HEALER_ID, damageCharacter.id, healthToCure)
+        CureCharacterAction(characters).execute(SOME_HEALER_ID, damageCharacter.id, healthToCure)
 
     }
 
@@ -41,14 +40,14 @@ internal class CureCharacterActionShould {
     fun `fail if the character is dead`() {
         val deadCharacter = givenADeadCharacter()
 
-        CureCharacter(characters).execute(SOME_HEALER_ID, deadCharacter.id, SOME_HEALTH)
+        CureCharacterAction(characters).execute(SOME_HEALER_ID, deadCharacter.id, SOME_HEALTH)
     }
 
     @Test(expected = UnsupportedOperationException::class)
     fun `fail if try to cure a full health character`() {
         val deadCharacter = givenAFullHealthCharacter()
 
-        CureCharacter(characters).execute(SOME_HEALER_ID, deadCharacter.id, SOME_HEALTH)
+        CureCharacterAction(characters).execute(SOME_HEALER_ID, deadCharacter.id, SOME_HEALTH)
     }
 
     private fun givenAFullHealthCharacter(): Character {
