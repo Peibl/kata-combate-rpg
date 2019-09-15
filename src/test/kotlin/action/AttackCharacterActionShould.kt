@@ -6,7 +6,7 @@ import domain.exception.SameGuildException
 import org.junit.Assert
 import org.junit.Before
 import org.junit.Test
-import infrastructure.CharactersInMemory
+import infrastructure.InMemoryCharacters
 
 
 internal class AttackCharacterActionShould {
@@ -136,12 +136,12 @@ internal class AttackCharacterActionShould {
         return character
     }
     private val SOME_ATTACK_TYPE: AttackType = Melee()
-    var characters = CharactersInMemory()
+    var characters = InMemoryCharacters()
     private val SOME_LEVEL = 1
     private val SOME_DAMAGE = 50
     @Before
     fun setUp() {
-        this.characters = CharactersInMemory()
+        this.characters = InMemoryCharacters()
     }
 
 }

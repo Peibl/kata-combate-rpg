@@ -27,4 +27,8 @@ class Character(
     fun addGuild(guild: Guild) {
         this.guilds.add(guild)
     }
+
+    fun removeGuild(guild: Guild) {
+        this.guilds.remove(guild)
+    }
 }

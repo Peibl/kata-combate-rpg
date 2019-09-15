@@ -2,7 +2,7 @@ package infrastructure
 
 import domain.Character
 
-class CharactersInMemory : Characters {
+class InMemoryCharacters : Characters {
     private var id = 1;
     private val rpgCharacters = mutableListOf<Character>()
     override fun findById(id: Int): Character {

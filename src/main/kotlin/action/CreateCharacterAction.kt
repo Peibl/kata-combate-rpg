@@ -4,7 +4,6 @@ import domain.Character
 import domain.FullHealth
 import domain.Melee
 import infrastructure.Characters
-import infrastructure.CharactersInMemory
 
 class CreateCharacterAction(var characters: Characters) {
     var INITIAL_LEVEL = 1

@@ -6,16 +6,16 @@ import domain.NoneHealth
 import domain.Character
 import org.junit.Before
 import org.junit.Test
-import infrastructure.CharactersInMemory
+import infrastructure.InMemoryCharacters
 
 
 internal class CureCharacterActionShould {
     private val SOME_HEALTH: Int = 50
     private val SOME_HEALER_ID: Int = 22
-    var characters = CharactersInMemory()
+    var characters = InMemoryCharacters()
     @Before
     fun setUp() {
-        this.characters = CharactersInMemory()
+        this.characters = InMemoryCharacters()
     }
 
     @Test(expected = UnsupportedOperationException::class)
