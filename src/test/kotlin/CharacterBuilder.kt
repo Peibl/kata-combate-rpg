@@ -8,7 +8,7 @@ class CharacterBuilder private constructor() {
     private var attackType: AttackType = Melee()
     private var factions = mutableListOf<Faction>()
 
-    fun withFaction(factions: MutableList<Faction>): CharacterBuilder {
+    fun withFactions(factions: MutableList<Faction>): CharacterBuilder {
         this.factions = factions
         return this
     }

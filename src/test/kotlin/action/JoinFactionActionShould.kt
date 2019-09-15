@@ -1,27 +1,27 @@
 package action
 
+import CharacterBuilder.Companion.aCharacter
+import domain.FACTIONS
+import org.junit.Assert
+import org.junit.Before
+import org.junit.Test
+import repository.Characters
+import org.assertj.core.api.Assertions.assertThat
+import repository.Factions
+
 
 internal class JoinFactionActionShould {
-//    var characters = Characters()
-//    var factions = Factions()
-//    var SOME_FACTION = SomeFaction();
-//    @Before
-//    fun setUp() {
-//        this.characters = Characters()
-//        this.factions = Factions()
-//    }
-//
-//    @Test()
-//    fun `assing faction to character`() {
-//        val character = aCharacter().build();
-//        this.characters.add(character)
-//
-//        factions.add(NoFaction())
-//        factions.add(SOME_FACTION)
-//
-//        JoinFaction(characters, factions).execute(character.id, SOME_FACTION.id)
-//
-//        Assert.assertEquals(character.faction.id,SOME_FACTION.id)
-//    }
+
+    @Test()
+    fun `assign faction to character without factions`() {
+        var character = aCharacter().withFactions(mutableListOf()).build()
+        characters.add(character)
+        JoinFaction(characters, factions).execute(character.id, FACTIONS.BLUE_FACTION.id)
+
+        assertThat(character.factions).containsExactly(FACTIONS.BLUE_FACTION)
+    }
+
+    var characters = Characters()
+    var factions = Factions()
 
 }

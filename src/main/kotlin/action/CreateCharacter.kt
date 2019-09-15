@@ -10,7 +10,7 @@ class CreateCharacter(var characters: Characters) {
     var INITIAL_LEVEL = 1
 
     fun execute(): Character {
-        val rpgCharacter = Character(INITIAL_LEVEL, 0, Melee(), mutableListOf(FACTIONS.NEUTRAL_FACTION), FullHealth())
+        val rpgCharacter = Character(INITIAL_LEVEL, 0, Melee(), mutableListOf(), FullHealth())
         this.characters.add(rpgCharacter)
         return rpgCharacter;
     }

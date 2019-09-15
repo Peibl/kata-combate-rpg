@@ -93,8 +93,8 @@ internal class AttackCharacterActionShould {
 
     @Test(expected = SameFactionException::class)
     fun `fail if characters has the same faction`() {
-        val attacker = aCharacter().withFaction(mutableListOf(FACTIONS.RED_FACTION)).build()
-        val victim = aCharacter().withFaction(mutableListOf(FACTIONS.RED_FACTION)).build()
+        val attacker = aCharacter().withFactions(mutableListOf(FACTIONS.RED_FACTION)).build()
+        val victim = aCharacter().withFactions(mutableListOf(FACTIONS.RED_FACTION)).build()
         this.characters.add(attacker)
         this.characters.add(victim)
 
@@ -103,8 +103,8 @@ internal class AttackCharacterActionShould {
 
     @Test()
     fun `not fail if both characters has neutral faction`() {
-        val attacker = aCharacter().withFaction(mutableListOf(FACTIONS.NEUTRAL_FACTION)).build()
-        val victim = aCharacter().withFaction(mutableListOf(FACTIONS.NEUTRAL_FACTION)).build()
+        val attacker = aCharacter().withFactions(mutableListOf(FACTIONS.NEUTRAL_FACTION)).build()
+        val victim = aCharacter().withFactions(mutableListOf(FACTIONS.NEUTRAL_FACTION)).build()
         this.characters.add(attacker)
         this.characters.add(victim)
 
@@ -113,8 +113,8 @@ internal class AttackCharacterActionShould {
 
     @Test()
     fun `not fail if both characters have different faction`() {
-        val attacker = aCharacter().withFaction(mutableListOf(FACTIONS.RED_FACTION)).build()
-        val victim = aCharacter().withFaction(mutableListOf(FACTIONS.BLUE_FACTION)).build()
+        val attacker = aCharacter().withFactions(mutableListOf(FACTIONS.RED_FACTION)).build()
+        val victim = aCharacter().withFactions(mutableListOf(FACTIONS.BLUE_FACTION)).build()
         this.characters.add(attacker)
         this.characters.add(victim)
 

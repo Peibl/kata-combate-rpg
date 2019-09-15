@@ -23,4 +23,8 @@ class Character(
     fun isAlive(): Boolean {
         return this.health.isAlive()
     }
+
+    fun addFaction(faction: Faction) {
+        this.factions.add(faction)
+    }
 }

@@ -14,6 +14,7 @@ dependencies {
     testImplementation "org.jetbrains.kotlin:kotlin-test"
     testImplementation "org.jetbrains.kotlin:kotlin-test-junit"
     testImplementation "io.mockk:mockk:1.9.2.kotlin12"
+    testImplementation "org.assertj:assertj-core:3.11.1"
 }
 
 compileKotlin {

@@ -1,8 +1,7 @@
 package domain
 
-enum class FACTIONS(id: Int) : Faction {
+enum class FACTIONS(val id: Int) : Faction {
     NEUTRAL_FACTION(0) {
-
         override fun canAttack(victim: Character): Boolean {
             return true
         }
@@ -16,5 +15,7 @@ enum class FACTIONS(id: Int) : Faction {
         override fun canAttack(character: Character): Boolean {
             return !character.factions.contains(this)
         }
-    },
+    };
+
+
 }
