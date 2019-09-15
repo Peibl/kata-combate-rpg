@@ -1,12 +1,15 @@
 package domain
 
+import domain.exception.SameGuildException
+
 class Character(
     var level: Int,
     var position: Int,
     var attackType: AttackType,
-    var guilds: MutableList<Guild>,
+    val guilds: MutableList<Guild>,
     var health: Healthable
-) {
+) : Gremiable {
+
     var id: Int = 0
     fun decreaseHealthIn(damage: Int) {
         this.health.decreaseHealthIn(damage, this)
@@ -24,11 +27,18 @@ class Character(
         return this.health.isAlive()
     }
 
-    fun addGuild(guild: Guild) {
+    override fun addGuild(guild: Guild) {
         this.guilds.add(guild)
     }
 
-    fun removeGuild(guild: Guild) {
+    override fun removeGuild(guild: Guild) {
         this.guilds.remove(guild)
+    }
+
+    override fun containsGuild(guild: Guild) = this.guilds.contains(guild)
+
+
+    override fun shareGuildWith(gremiable: Gremiable): Boolean {
+        return this.guilds.filter { gremiable.containsGuild(it) }.isNotEmpty()
     }
 }

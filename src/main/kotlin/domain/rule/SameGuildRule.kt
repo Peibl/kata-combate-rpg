@@ -1,14 +1,12 @@
 package domain.rule
 
-import domain.Character
+import domain.Gremiable
 import domain.exception.SameGuildException
 
-class SameGuildRule(val attacker: Character, val victim: Character) : Rule {
+class SameGuildRule(val attacker: Gremiable, val victim: Gremiable) : Rule {
     override fun verify() {
-        for (guild in attacker.guilds) {
-            if (!guild.canAttack(victim)) {
-                throw SameGuildException()
-            }
+        if (attacker.shareGuildWith(victim)) {
+            throw SameGuildException()
         }
     }
 }

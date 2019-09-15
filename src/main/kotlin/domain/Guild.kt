@@ -1,5 +1,5 @@
 package domain
 
 interface Guild {
-    fun canAttack(victim: Character): Boolean
+    fun shareGuild(victim: Character): Boolean
 }

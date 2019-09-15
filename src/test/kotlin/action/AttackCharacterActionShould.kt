@@ -102,9 +102,9 @@ internal class AttackCharacterActionShould {
     }
 
     @Test()
-    fun `not fail if both characters has neutral guild`() {
-        val attacker = aCharacter().withGuilds(mutableListOf(GUILDS.NEUTRAL_GUILD)).build()
-        val victim = aCharacter().withGuilds(mutableListOf(GUILDS.NEUTRAL_GUILD)).build()
+    fun `not fail if characters havent guilds `() {
+        val attacker = aCharacter().withGuilds(mutableListOf()).build()
+        val victim = aCharacter().withGuilds(mutableListOf()).build()
         this.characters.add(attacker)
         this.characters.add(victim)
 
