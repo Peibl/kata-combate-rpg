@@ -12,4 +12,9 @@ enum class FACTIONS(id: Int) : Faction {
             return !character.factions.contains(this)
         }
     },
+    BLUE_FACTION(2) {
+        override fun canAttack(character: Character): Boolean {
+            return !character.factions.contains(this)
+        }
+    },
 }

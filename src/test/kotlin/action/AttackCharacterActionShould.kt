@@ -111,6 +111,16 @@ internal class AttackCharacterActionShould {
         AttackCharacter(characters).execute(attacker.id, victim.id, SOME_DAMAGE)
     }
 
+    @Test()
+    fun `not fail if both characters have different faction`() {
+        val attacker = aCharacter().withFaction(mutableListOf(FACTIONS.RED_FACTION)).build()
+        val victim = aCharacter().withFaction(mutableListOf(FACTIONS.BLUE_FACTION)).build()
+        this.characters.add(attacker)
+        this.characters.add(victim)
+
+        AttackCharacter(characters).execute(attacker.id, victim.id, SOME_DAMAGE)
+    }
+
 
     private fun givenACharacterForAttack(): Character {
         return givenCharacterWithLevel(SOME_LEVEL)
