@@ -2,18 +2,16 @@ package domain
 
 import java.lang.UnsupportedOperationException
 
-class FullHealth(var character: Character) : Healthable {
-
-
-    override fun decreaseHealthIn(damage: Int) {
+class FullHealth() : Healthable {
+    override fun decreaseHealthIn(damage: Int, character: Character) {
         if (1000f - damage <= 0) {
-            character.health = NoneHealth(character)
+            character.health = NoneHealth()
         } else {
-            character.health = Health(1000f - damage, character)
+            character.health = Health(1000f - damage)
         }
     }
 
-    override fun increaseHealthIn(damage: Int) {
+    override fun increaseHealthIn(damage: Int, character: Character) {
         throw UnsupportedOperationException()
     }
 

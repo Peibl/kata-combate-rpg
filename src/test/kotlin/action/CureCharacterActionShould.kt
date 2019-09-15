@@ -1,5 +1,6 @@
 package action
 
+import CharacterBuilder.Companion.aCharacter
 import domain.Health
 import domain.NoneHealth
 import domain.Character
@@ -51,22 +52,20 @@ internal class CureCharacterActionShould {
     }
 
     private fun givenAFullHealthCharacter(): Character {
-        val character = Character(1, 0, Melee())
+        val character = aCharacter().build()
         this.characters.add(character)
         return character
     }
 
 
     private fun givenADamageCharacterWithHealthIn(health: Float): Character {
-        val character = Character(1, 0, Melee())
-        character.health = Health(health, character)
+        val character = aCharacter().withHealth(Health(health)).build();
         this.characters.add(character)
         return character
     }
 
     private fun givenADeadCharacter(): Character {
-        val character = Character(1, 0, Melee())
-        character.health = NoneHealth(character)
+        val character = aCharacter().withHealth(NoneHealth()).build();
         this.characters.add(character)
         return character
     }

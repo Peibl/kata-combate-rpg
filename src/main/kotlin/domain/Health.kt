@@ -1,25 +1,26 @@
 package domain
 
-class Health(var health: Float, var character: Character) : Healthable {
-    override fun decreaseHealthIn(damage: Int) {
+class Health(var health: Float) : Healthable {
+    override fun decreaseHealthIn(damage: Int, character: Character) {
         if (health - damage <= 0) {
-            character.health = NoneHealth(character)
+            character.health = NoneHealth()
         } else {
-            character.health = Health(health - damage, character)
+            character.health = Health(health - damage)
         }
     }
 
-    override fun increaseHealthIn(damage: Int) {
+    override fun increaseHealthIn(damage: Int, character: Character) {
         if (health + damage > 1000) {
-            character.health = FullHealth(character)
+            character.health = FullHealth()
         } else {
-            character.health = Health(health + damage, character)
+            character.health = Health(health + damage)
         }
     }
 
     override fun healthAmount(): Float {
         return health
     }
+
     override fun isAlive(): Boolean {
         return true
     }

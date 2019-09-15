@@ -1,7 +1,7 @@
 package domain
 
-class Damage(var value: Int) {
-    fun recalculate(victim: Character, attacker: Character) {
+class DamageRule(var value: Int) {
+    fun calculate(victim: Character, attacker: Character) {
         if ((victim.level - attacker.level) >= 5) {
             value /= 2
         }

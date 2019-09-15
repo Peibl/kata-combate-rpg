@@ -1,24 +1,26 @@
 package domain
 
-class Character(var level: Int, var position: Int, var attackType: AttackType) : Healthable {
+class Character(
+    var level: Int,
+    var position: Int,
+    var attackType: AttackType,
+    var factions: MutableList<Faction>,
+    var health: Healthable
+) {
     var id: Int = 0
-    var health: Healthable = FullHealth(this)
-    var faction: Faction = NoFaction()
-
-    override fun decreaseHealthIn(damage: Int) {
-        this.health.decreaseHealthIn(damage)
+    fun decreaseHealthIn(damage: Int) {
+        this.health.decreaseHealthIn(damage, this)
     }
 
-    override fun increaseHealthIn(health: Int) {
-        this.health.increaseHealthIn(health)
+    fun increaseHealthIn(health: Int) {
+        this.health.increaseHealthIn(health, this)
     }
 
-    override fun healthAmount(): Float {
+    fun healthAmount(): Float {
         return this.health.healthAmount()
     }
 
-    override fun isAlive(): Boolean {
+    fun isAlive(): Boolean {
         return this.health.isAlive()
     }
-
 }

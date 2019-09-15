@@ -2,12 +2,12 @@ package domain
 
 import java.lang.UnsupportedOperationException
 
-class NoneHealth(character: Character) : Healthable {
-    override fun decreaseHealthIn(damage: Int) {
+class NoneHealth() : Healthable {
+    override fun decreaseHealthIn(damage: Int, character: Character) {
         throw UnsupportedOperationException()
     }
 
-    override fun increaseHealthIn(damage: Int) {
+    override fun increaseHealthIn(damage: Int, character: Character) {
         throw UnsupportedOperationException()
     }
 

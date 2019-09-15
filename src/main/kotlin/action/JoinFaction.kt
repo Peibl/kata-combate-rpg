@@ -1,12 +1,11 @@
 package action
 
 import repository.Characters
-import repository.Factions
 
-class JoinFaction(var characters: Characters, var factions: Factions) {
+class JoinFaction(var characters: Characters) {
 
     fun execute(id: Int, factionId: Int) {
         val character = this.characters.findById(id)
-        character.faction = this.factions.findById(factionId)
+//        character.faction = this.factions.findById(factionId)
     }
 }

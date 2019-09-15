@@ -1,10 +1,10 @@
 package action
 
-import domain.Damage
+import domain.DamageRule
 import repository.Characters
 import rule.AutoAttackRule
+import rule.FactionRule
 import rule.RangeRule
-import java.lang.Math.abs
 
 class AttackCharacter(var characters: Characters) {
 
@@ -15,9 +15,10 @@ class AttackCharacter(var characters: Characters) {
 
         AutoAttackRule(fromId, toId).verify()
         RangeRule(attacker, victim).verify()
+        FactionRule(attacker,victim).verify()
 
-        var damage = Damage(damageValue)
-        damage.recalculate(victim, attacker)
+        var damage = DamageRule(damageValue)
+        damage.calculate(victim, attacker)
         victim.decreaseHealthIn(damage.value)
     }
 

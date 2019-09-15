@@ -1,10 +1,8 @@
 package action
 
 import CharacterBuilder.Companion.aCharacter
-import domain.AttackType
-import domain.Character
-import domain.Melee
-import domain.Ranged
+import domain.*
+import exceptions.SameFactionException
 import org.junit.Assert
 import org.junit.Before
 import org.junit.Test
@@ -12,15 +10,6 @@ import repository.Characters
 
 
 internal class AttackCharacterActionShould {
-    private val SOME_ATTACK_TYPE: AttackType = Melee()
-    var characters = Characters()
-    private val SOME_LEVEL = 1
-    private val SOME_DAMAGE = 50
-    @Before
-    fun setUp() {
-        this.characters = Characters()
-    }
-
     @Test
     fun `decrease health from victim in indicate damage`() {
         val attacker = givenAttackerCharacter()
@@ -101,6 +90,28 @@ internal class AttackCharacterActionShould {
         Assert.assertEquals(expectedHealth, victim.healthAmount())
     }
 
+
+    @Test(expected = SameFactionException::class)
+    fun `fail if characters has the same faction`() {
+        val attacker = aCharacter().withFaction(mutableListOf(FACTIONS.RED_FACTION)).build()
+        val victim = aCharacter().withFaction(mutableListOf(FACTIONS.RED_FACTION)).build()
+        this.characters.add(attacker)
+        this.characters.add(victim)
+
+        AttackCharacter(characters).execute(attacker.id, victim.id, SOME_DAMAGE)
+    }
+
+    @Test()
+    fun `not fail if both characters has neutral faction`() {
+        val attacker = aCharacter().withFaction(mutableListOf(FACTIONS.NEUTRAL_FACTION)).build()
+        val victim = aCharacter().withFaction(mutableListOf(FACTIONS.NEUTRAL_FACTION)).build()
+        this.characters.add(attacker)
+        this.characters.add(victim)
+
+        AttackCharacter(characters).execute(attacker.id, victim.id, SOME_DAMAGE)
+    }
+
+
     private fun givenACharacterForAttack(): Character {
         return givenCharacterWithLevel(SOME_LEVEL)
     }
@@ -110,10 +121,17 @@ internal class AttackCharacterActionShould {
     }
 
     private fun givenCharacterWithLevel(level: Int): Character {
-        val character = Character(level, 0, Melee())
+        val character = aCharacter().withLevel(level).build()
         this.characters.add(character)
         return character
     }
-
+    private val SOME_ATTACK_TYPE: AttackType = Melee()
+    var characters = Characters()
+    private val SOME_LEVEL = 1
+    private val SOME_DAMAGE = 50
+    @Before
+    fun setUp() {
+        this.characters = Characters()
+    }
 
 }

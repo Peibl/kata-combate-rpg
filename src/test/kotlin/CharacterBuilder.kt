@@ -1,14 +1,15 @@
 import domain.*
 
 class CharacterBuilder private constructor() {
-    private var id: Int = 1
-    private var level: Int = 1
-    private var position: Int = 0
+    private var health: Healthable = FullHealth()
+    private var id = 1
+    private var level = 1
+    private var position = 0
     private var attackType: AttackType = Melee()
-    private var faction: Faction = SomeFaction()
+    private var factions = mutableListOf<Faction>()
 
-    fun withFaction(faction: Faction): CharacterBuilder {
-        this.faction = faction
+    fun withFaction(factions: MutableList<Faction>): CharacterBuilder {
+        this.factions = factions
         return this
     }
 
@@ -27,8 +28,13 @@ class CharacterBuilder private constructor() {
         return this
     }
 
+    fun withHealth(health: Healthable): CharacterBuilder {
+        this.health = health
+        return this
+    }
+
     fun build(): Character {
-        return Character(this.level, this.position, this.attackType)
+        return Character(this.level, this.position, this.attackType, this.factions, this.health)
     }
 
     companion object {
