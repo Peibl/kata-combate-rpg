@@ -1,7 +1,5 @@
 package domain
 
-import domain.exception.SameGuildException
-
 class Character(
     var level: Int,
     var position: Int,

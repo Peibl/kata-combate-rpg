@@ -10,5 +10,4 @@ import org.junit.runners.Suite
     CureCharacterActionShould::class,
     JoinGuildActionShould::class
 )
-class Suite {
-}
+class Suite

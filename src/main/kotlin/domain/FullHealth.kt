@@ -1,5 +1,6 @@
 package domain
 
+import domain.exception.CantCureFullHealthCharacterException
 import java.lang.UnsupportedOperationException
 
 class FullHealth() : Healthable {
@@ -12,7 +13,7 @@ class FullHealth() : Healthable {
     }
 
     override fun increaseHealthIn(damage: Int, character: Character) {
-        throw UnsupportedOperationException()
+        throw CantCureFullHealthCharacterException()
     }
 
     override fun healthAmount(): Float {

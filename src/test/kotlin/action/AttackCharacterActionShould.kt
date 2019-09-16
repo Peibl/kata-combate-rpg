@@ -12,8 +12,10 @@ import infrastructure.InMemoryCharacters
 internal class AttackCharacterActionShould {
     @Test
     fun `decrease health from victim in indicate damage`() {
-        val attacker = givenAttackerCharacter()
-        val victim = givenACharacterForAttack()
+        val attacker = aCharacter().build()
+        val victim = aCharacter().build()
+        this.characters.add(attacker)
+        this.characters.add(victim)
 
         AttackCharacterAction(characters).execute(attacker.id, victim.id, SOME_DAMAGE)
 
@@ -23,8 +25,10 @@ internal class AttackCharacterActionShould {
 
     @Test
     fun `decrease 50% of damage if victim level is 5 or more levels above the attacker`() {
-        val attacker = givenCharacterWithLevel(6)
-        val victim = givenCharacterWithLevel(15)
+        val attacker = aCharacter().withLevel(6).build()
+        val victim = aCharacter().withLevel(15).build()
+        this.characters.add(attacker)
+        this.characters.add(victim)
 
         var damage = 100;
         AttackCharacterAction(characters).execute(attacker.id, victim.id, damage)
@@ -35,8 +39,10 @@ internal class AttackCharacterActionShould {
 
     @Test
     fun `increase damage in 50% if the attacked has 5 or less levels below the attacker's level`() {
-        val attacker = givenCharacterWithLevel(15)
-        val victim = givenCharacterWithLevel(6)
+        val attacker = aCharacter().withLevel(15).build()
+        val victim = aCharacter().withLevel(6).build()
+        this.characters.add(attacker)
+        this.characters.add(victim)
 
         var damage = 100;
         AttackCharacterAction(characters).execute(attacker.id, victim.id, damage)
@@ -47,8 +53,10 @@ internal class AttackCharacterActionShould {
 
     @Test
     fun `kill a character if the damage is greater than health`() {
-        val attacker = givenAttackerCharacter()
-        val victim = givenACharacterForAttack()
+        val attacker = aCharacter().build()
+        val victim = aCharacter().build()
+        this.characters.add(attacker)
+        this.characters.add(victim)
 
         val damage = 1500
         AttackCharacterAction(characters).execute(attacker.id, victim.id, damage)
@@ -59,8 +67,8 @@ internal class AttackCharacterActionShould {
 
     @Test(expected = UnsupportedOperationException::class)
     fun `fail if character attacks itself`() {
-        val victim = givenACharacterForAttack()
-
+        val victim = aCharacter().build()
+        this.characters.add(victim)
         AttackCharacterAction(characters).execute(victim.id, victim.id, SOME_DAMAGE)
     }
 
@@ -122,19 +130,6 @@ internal class AttackCharacterActionShould {
     }
 
 
-    private fun givenACharacterForAttack(): Character {
-        return givenCharacterWithLevel(SOME_LEVEL)
-    }
-
-    private fun givenAttackerCharacter(): Character {
-        return givenCharacterWithLevel(SOME_LEVEL)
-    }
-
-    private fun givenCharacterWithLevel(level: Int): Character {
-        val character = aCharacter().withLevel(level).build()
-        this.characters.add(character)
-        return character
-    }
     private val SOME_ATTACK_TYPE: AttackType = Melee()
     var characters = InMemoryCharacters()
     private val SOME_LEVEL = 1
