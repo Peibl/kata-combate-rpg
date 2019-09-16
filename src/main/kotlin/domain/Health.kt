@@ -3,7 +3,7 @@ package domain
 class Health(var health: Float) : Healthable {
     override fun decreaseHealthIn(damage: Int, character: Character) {
         if (health - damage <= 0) {
-            character.health = NoneHealth()
+            character.health = ZeroHealth()
         } else {
             character.health = Health(health - damage)
         }

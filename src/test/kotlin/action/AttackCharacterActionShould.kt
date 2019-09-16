@@ -102,7 +102,7 @@ internal class AttackCharacterActionShould {
     }
 
     @Test()
-    fun `not fail if characters havent guilds `() {
+    fun `not fail if characters havent guilds`() {
         val attacker = aCharacter().withGuilds(mutableListOf()).build()
         val victim = aCharacter().withGuilds(mutableListOf()).build()
         this.characters.add(attacker)
