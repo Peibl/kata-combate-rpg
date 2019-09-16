@@ -8,7 +8,6 @@ import infrastructure.Characters
 
 class AttackCharacterAction(var characters: Characters) {
 
-
     fun execute(fromId: Int, toId: Int, damageValue: Int) {
         val attacker = this.characters.findById(fromId)
         val victim = this.characters.findById(toId)
@@ -21,6 +20,4 @@ class AttackCharacterAction(var characters: Characters) {
         damage.calculate(victim, attacker)
         victim.decreaseHealthIn(damage.value)
     }
-
-
 }

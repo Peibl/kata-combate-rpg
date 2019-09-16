@@ -129,14 +129,7 @@ internal class AttackCharacterActionShould {
         AttackCharacterAction(characters).execute(attacker.id, victim.id, SOME_DAMAGE)
     }
 
-
     private val SOME_ATTACK_TYPE: AttackType = Melee()
     var characters = InMemoryCharacters()
-    private val SOME_LEVEL = 1
     private val SOME_DAMAGE = 50
-    @Before
-    fun setUp() {
-        this.characters = InMemoryCharacters()
-    }
-
 }
