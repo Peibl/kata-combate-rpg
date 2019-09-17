@@ -8,6 +8,8 @@ import org.junit.runners.Suite
     AttackCharacterActionShould::class,
     CreateCharacterActionShould::class,
     CureCharacterActionShould::class,
-    JoinGuildActionShould::class
+    JoinGuildActionShould::class,
+    AttackThingActionShould::class,
+    LeaveGuildActionTest::class
 )
 class Suite

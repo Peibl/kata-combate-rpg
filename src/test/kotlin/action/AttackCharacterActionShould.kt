@@ -2,11 +2,13 @@ package action
 
 import CharacterBuilder.Companion.aCharacter
 import domain.*
+import domain.exception.DeathCharacterException
 import domain.exception.SameGuildException
 import org.junit.Assert
 import org.junit.Before
 import org.junit.Test
 import infrastructure.InMemoryCharacters
+import kotlin.test.assertTrue
 
 
 internal class AttackCharacterActionShould {
@@ -128,6 +130,44 @@ internal class AttackCharacterActionShould {
 
         AttackCharacterAction(characters).execute(attacker.id, victim.id, SOME_DAMAGE)
     }
+
+    @Test(expected = DeathCharacterException::class)
+    fun `fail if victim is dead`() {
+        val attacker = aCharacter().build()
+        val victim = aCharacter().withHealth(NoneHealthState()).build()
+        this.characters.add(attacker)
+        this.characters.add(victim)
+
+        AttackCharacterAction(characters).execute(attacker.id, victim.id, SOME_DAMAGE)
+    }
+
+    @Test
+    fun `decrease health from victim in indicate damage after two attacks`() {
+        val attacker = aCharacter().build()
+        val victim = aCharacter().build()
+        this.characters.add(attacker)
+        this.characters.add(victim)
+
+        AttackCharacterAction(characters).execute(attacker.id, victim.id, SOME_DAMAGE)
+        AttackCharacterAction(characters).execute(attacker.id, victim.id, SOME_DAMAGE)
+
+        val expectedHealth = (1000f - SOME_DAMAGE * 2)
+        Assert.assertEquals(expectedHealth, victim.healthAmount())
+    }
+
+    @Test(expected = DeathCharacterException::class)
+    fun `kill victim after two attacks`() {
+        val attacker = aCharacter().build()
+        val victim = aCharacter().withHealth(NoneHealthState()).build()
+        this.characters.add(attacker)
+        this.characters.add(victim)
+
+        AttackCharacterAction(characters).execute(attacker.id, victim.id, SOME_DAMAGE)
+        AttackCharacterAction(characters).execute(attacker.id, victim.id, (victim.healthAmount() + 500).toInt())
+
+        Assert.assertFalse(victim.isAlive())
+    }
+
 
     private val SOME_ATTACK_TYPE: AttackType = Melee()
     var characters = InMemoryCharacters()

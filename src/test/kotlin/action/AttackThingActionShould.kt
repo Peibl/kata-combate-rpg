@@ -6,7 +6,6 @@ import domain.exception.ThingDestroyedException
 import infrastructure.InMemoryCharacters
 import infrastructure.InMemoryThings
 import org.assertj.core.api.Assertions.assertThat
-import org.junit.Assert
 import org.junit.Test
 
 

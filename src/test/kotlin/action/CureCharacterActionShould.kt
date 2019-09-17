@@ -88,6 +88,18 @@ internal class CureCharacterActionShould {
         assertThat(character.healthAmount()).isEqualTo(SOME_HEALTH + SOME_HEALTH_AMOUNT_TO_CURE)
     }
 
+    @Test()
+    fun `must heal an allied character to full health`() {
+        val character: Character =
+            aCharacter().withHealth(NormalHealthState(SOME_HEALTH)).withGuilds(mutableListOf(GUILDS.RED_GUILD)).build()
+        val healer = aCharacter().withGuilds(mutableListOf(GUILDS.RED_GUILD)).build()
+        this.characters.add(character)
+        this.characters.add(healer)
+
+        CureCharacterAction(characters).execute(healer.id, character.id, 500)
+        assertThat(character.healthAmount()).isEqualTo(1000f)
+    }
+
     val SOME_HEALTH_AMOUNT_TO_CURE: Int = 50
     val SOME_HEALTH = 900f
     var characters = InMemoryCharacters()
