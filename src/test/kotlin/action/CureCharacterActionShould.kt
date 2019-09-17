@@ -1,8 +1,8 @@
 package action
 
 import CharacterBuilder.Companion.aCharacter
-import domain.Health
-import domain.ZeroHealth
+import domain.NormalHealthState
+import domain.NoneHealthState
 import domain.Character
 import domain.GUILDS
 import domain.exception.CantCureCharacterException
@@ -17,7 +17,7 @@ internal class CureCharacterActionShould {
 
     @Test(expected = CantCureCharacterException::class)
     fun `fail if try to increase another character health in indicate amount`() {
-        val damageCharacter = aCharacter().withHealth(Health(SOME_HEALTH)).build();
+        val damageCharacter = aCharacter().withHealth(NormalHealthState(SOME_HEALTH)).build();
         val healer = aCharacter().build();
         this.characters.add(damageCharacter)
         this.characters.add(healer)
@@ -28,7 +28,7 @@ internal class CureCharacterActionShould {
 
     @Test(expected = CantCureCharacterException::class)
     fun `fail if try increase health to the maximum if the amount exceeds the maximum limit`() {
-        val damageCharacter = aCharacter().withHealth(Health(SOME_HEALTH)).build();
+        val damageCharacter = aCharacter().withHealth(NormalHealthState(SOME_HEALTH)).build();
         val healer = aCharacter().build();
         this.characters.add(damageCharacter)
         this.characters.add(healer)
@@ -39,7 +39,7 @@ internal class CureCharacterActionShould {
 
     @Test(expected = DeathCharacterException::class)
     fun `fail if the character is dead`() {
-        val deadCharacter = aCharacter().withHealth(ZeroHealth()).withGuilds(mutableListOf(GUILDS.RED_GUILD)).build();
+        val deadCharacter = aCharacter().withHealth(NoneHealthState()).withGuilds(mutableListOf(GUILDS.RED_GUILD)).build();
         val healer = aCharacter().withGuilds(mutableListOf(GUILDS.RED_GUILD)).build();
         this.characters.add(deadCharacter)
         this.characters.add(healer)
@@ -60,7 +60,7 @@ internal class CureCharacterActionShould {
     @Test()
     fun `must heal an allied character`() {
         val character: Character =
-            aCharacter().withHealth(Health(SOME_HEALTH)).withGuilds(mutableListOf(GUILDS.RED_GUILD)).build()
+            aCharacter().withHealth(NormalHealthState(SOME_HEALTH)).withGuilds(mutableListOf(GUILDS.RED_GUILD)).build()
         val healer = aCharacter().withGuilds(mutableListOf(GUILDS.RED_GUILD)).build()
         this.characters.add(character)
         this.characters.add(healer)
@@ -81,7 +81,7 @@ internal class CureCharacterActionShould {
 
     @Test()
     fun `increase character health if he heals himself`() {
-        val character = aCharacter().withHealth(Health(SOME_HEALTH)).build()
+        val character = aCharacter().withHealth(NormalHealthState(SOME_HEALTH)).build()
         this.characters.add(character)
 
         CureCharacterAction(characters).execute(character.id, character.id, SOME_HEALTH_AMOUNT_TO_CURE)

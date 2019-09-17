@@ -1,14 +1,13 @@
 package domain
 
 import domain.exception.CantCureFullHealthCharacterException
-import java.lang.UnsupportedOperationException
 
-class FullHealth() : Healthable {
+class FullHealthState() : HealthState {
     override fun decreaseHealthIn(damage: Int, character: Character) {
         if (1000f - damage <= 0) {
-            character.health = ZeroHealth()
+            character.health = NoneHealthState()
         } else {
-            character.health = Health(1000f - damage)
+            character.health = NormalHealthState(1000f - damage)
         }
     }
 

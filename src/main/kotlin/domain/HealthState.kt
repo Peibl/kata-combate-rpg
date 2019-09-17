@@ -1,6 +1,6 @@
 package domain
 
-interface Healthable {
+interface HealthState {
     fun decreaseHealthIn(damage: Int, character: Character)
     fun increaseHealthIn(damage: Int, character: Character)
     fun healthAmount(): Float;

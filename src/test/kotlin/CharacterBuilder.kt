@@ -1,7 +1,7 @@
 import domain.*
 
 class CharacterBuilder private constructor() {
-    private var health: Healthable = FullHealth()
+    private var health: HealthState = FullHealthState()
     private var id = 1
     private var level = 1
     private var position = 0
@@ -28,7 +28,7 @@ class CharacterBuilder private constructor() {
         return this
     }
 
-    fun withHealth(health: Healthable): CharacterBuilder {
+    fun withHealth(health: HealthState): CharacterBuilder {
         this.health = health
         return this
     }

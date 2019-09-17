@@ -1,9 +1,8 @@
 package domain
 
 import domain.exception.DeathCharacterException
-import java.lang.UnsupportedOperationException
 
-class ZeroHealth() : Healthable {
+class NoneHealthState() : HealthState {
     override fun decreaseHealthIn(damage: Int, character: Character) {
         throw DeathCharacterException()
     }

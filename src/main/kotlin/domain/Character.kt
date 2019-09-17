@@ -5,7 +5,7 @@ class Character(
     var position: Int,
     var attackType: AttackType,
     val guilds: MutableList<Guild>,
-    var health: Healthable
+    var health: HealthState
 ) : Gremiable, Attackable {
 
     var id: Int = 0
