@@ -6,12 +6,9 @@ class Character(
     var attackType: AttackType,
     val guilds: MutableList<Guild>,
     var health: Healthable
-) : Gremiable {
+) : Gremiable, Attackable {
 
     var id: Int = 0
-    fun decreaseHealthIn(damage: Int) {
-        this.health.decreaseHealthIn(damage, this)
-    }
 
     fun increaseHealthIn(health: Int) {
         this.health.increaseHealthIn(health, this)
@@ -38,5 +35,9 @@ class Character(
 
     override fun shareGuildWith(gremiable: Gremiable): Boolean {
         return this.guilds.filter { gremiable.containsGuild(it) }.isNotEmpty()
+    }
+
+    override fun receiveDamage(damage: Int) {
+        this.health.decreaseHealthIn(damage, this)
     }
 }

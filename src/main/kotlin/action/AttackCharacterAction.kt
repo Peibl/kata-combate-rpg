@@ -18,6 +18,6 @@ class AttackCharacterAction(var characters: Characters) {
 
         var damage = DamageRule(damageValue)
         damage.calculate(victim, attacker)
-        victim.decreaseHealthIn(damage.value)
+        victim.receiveDamage(damage.value)
     }
 }
